@@ -33,7 +33,7 @@ func handlerMove(gs *gamelogic.GameState, publishCh *amqp091.Channel) func(gamel
 				fmt.Printf("error: %s\n", err)
 				return pubsub.NackRequeue
 			}
-			return pubsub.NackRequeue
+			return pubsub.Ack
 		}
 		fmt.Println("error: unknown move outcome")
 		return pubsub.NackDiscard
